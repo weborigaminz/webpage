@@ -8,16 +8,18 @@
     </title>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
-    </script>
     <link href="css/default.css" id="default-css" media="all" rel="stylesheet" />
     <link href="css/style.css" id="style-css" media="all" rel="stylesheet" />
     <link href="css/web-origami-style.css" id="style-css" media="all" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0HJK8089E1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0HJK8089E1');
     </script>
-    <script src="js/default.js">
-    </script>
-    <link href="css/web-origami-style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -1534,9 +1536,6 @@
                                 Navigation
                             </div>
                             <div class="inline-style-145">
-                                <a class="inline-style-146" href="#home">
-                                    Home
-                                </a>
                                 <a class="inline-style-146" href="#services">
                                     Services
                                 </a>
@@ -1597,6 +1596,36 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    </script>
+    <script>
+
+        $(document).ready(function () {
+
+            // Mobile Menu function
+            $('.mobile-burger').click(function () {
+                $('.desktop-nav').slideToggle('fast'); // Smoothly opens/closes the menu
+            });
+
+            // Hosting Price Function
+            $('#monthlyhosting').click(function () {
+                $('#starterhosting .price').text('29.95');
+                $('#businesshosting .price').text('44.95');
+                $('#growthhosting .price').text('59.95');
+                $('#monthlyhosting').removeClass('inline-style-081').addClass('inline-style-080');
+                $('#annualhosting').removeClass('inline-style-080').addClass('inline-style-081');
+            });
+
+            $('#annualhosting').click(function () {
+                $('#starterhosting .price').text('299');
+                $('#businesshosting .price').text('449');
+                $('#growthhosting .price').text('599');
+                $('#annualhosting').removeClass('inline-style-081').addClass('inline-style-080');
+                $('#monthlyhosting').removeClass('inline-style-080').addClass('inline-style-081');
+            });
+
+        });
+    </script>
 </body>
 
 </html>
