@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#292923">
+  <title>Our Story | Ember Cafe</title>
+  <meta name="description" content="Get to know Ember Cafe: thoughtful coffee, fresh seasonal food, warm hospitality, and a welcoming place to connect.">
+  <link rel="canonical" href="https://www.example.com/our-story">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ember Cafe">
+  <meta property="og:title" content="Our Story | Ember Cafe">
+  <meta property="og:description" content="Thoughtful coffee, fresh seasonal food, and a welcoming place to connect.">
+  <meta property="og:url" content="https://www.example.com/our-story">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=85">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Story | Ember Cafe">
+  <meta name="twitter:description" content="Thoughtful coffee, fresh seasonal food, and a welcoming place to connect.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=85">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ember:#B85D3F;--ember-dark:#93452f;--charcoal:#292923;--cream:#F5EEE3;--sage:#89917A;--muted:#71695f;--white:#fffdf9;--line:rgba(41,41,35,.15);--serif:"Cormorant Garamond",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;--container:1180px}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:90px}
+    body{margin:0;background:var(--cream);color:var(--charcoal);font-family:var(--sans);line-height:1.7}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    a{color:inherit;text-decoration:none}
+    :focus-visible{outline:3px solid var(--ember);outline-offset:4px}
+    .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--ember);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:26px;height:1px;background:currentColor}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.025em}
+    h1{font-size:clamp(3.5rem,7vw,6.5rem);margin-bottom:24px}
+    h2{font-size:clamp(2.7rem,5vw,4.5rem);margin-bottom:20px}
+    h3{font-size:1.8rem;margin-bottom:10px}
+    em{color:var(--ember);font-weight:400}
+    .lead{max-width:620px;color:var(--muted);font-size:1.08rem}
+    .btn{display:inline-flex;min-height:50px;align-items:center;justify-content:center;gap:12px;padding:13px 22px;border:1px solid var(--ember);background:var(--ember);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.06em;transition:background .2s,transform .2s}
+    .btn:hover{background:var(--ember-dark);transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--charcoal);border-color:rgba(41,41,35,.4)}
+    .btn-outline:hover{background:var(--charcoal);color:white;border-color:var(--charcoal)}
+    .text-link{display:inline-flex;align-items:center;gap:12px;padding-bottom:5px;border-bottom:1px solid var(--ember);font-size:.8rem;font-weight:700}
+    .text-link span{color:var(--ember);font-size:1.15rem}
+    /* Header */
+    .site-header{position:sticky;z-index:20;top:0;background:rgba(245,238,227,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .nav-wrap{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:inline-flex;align-items:center;gap:11px;flex-shrink:0}
+    .brand-mark{width:36px;height:43px;color:var(--ember)}
+    .brand-name{display:flex;flex-direction:column;line-height:1}
+    .brand-name strong{font-family:var(--serif);font-size:1.8rem;font-weight:600;letter-spacing:.08em}
+    .brand-name small{margin-top:5px;font-size:.57rem;letter-spacing:.38em;text-align:center}
+    .nav-links{display:flex;align-items:center;gap:clamp(18px,2.7vw,38px)}
+    .nav-links a:not(.btn){font-size:.78rem;font-weight:600;transition:color .2s}
+    .nav-links a:not(.btn):hover,.nav-links a[aria-current="page"]{color:var(--ember)}
+    .nav-links .btn{min-height:43px;padding:10px 18px}
+    .menu-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--charcoal);cursor:pointer}
+    .menu-toggle svg{width:22px;height:22px}
+    /* Hero */
+    .page-hero{position:relative;min-height:590px;display:grid;align-items:end;overflow:hidden;background:#332e27;color:white}
+    .page-hero-image{position:absolute;inset:0}
+    .page-hero-image img{object-position:center 52%}
+    .page-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(26,27,22,.78),rgba(26,27,22,.28)),linear-gradient(0deg,rgba(26,27,22,.54),transparent 72%)}
+    .hero-content{position:relative;z-index:1;padding-block:130px 82px}
+    .page-hero .eyebrow{color:#e5b69b}
+    .page-hero h1{max-width:800px}
+    .hero-intro{max-width:570px;color:rgba(255,255,255,.82);font-size:1.08rem}
+    .hero-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:35px}
+    .hero-bottom .btn-outline{color:white;border-color:rgba(255,255,255,.65)}
+    .hero-bottom .btn-outline:hover{color:var(--charcoal);background:white}
+    .hero-note{color:rgba(255,255,255,.72);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase}
+    /* Intro */
+    .intro{padding-block:112px}
+    .intro-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(45px,8vw,115px);align-items:start}
+    .intro-heading{position:sticky;top:125px}
+    .intro-heading h2{max-width:450px}
+    .intro-copy p{color:var(--muted)}
+    .intro-copy .lead{color:var(--charcoal);font-family:var(--serif);font-size:1.8rem;line-height:1.25}
+    .pullquote{margin:35px 0;padding:22px 0 22px 25px;border-left:2px solid var(--ember);font-family:var(--serif);font-size:1.8rem;line-height:1.2}
+    /* Image story */
+    .story-image-section{padding-bottom:112px}
+    .story-image-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:stretch}
+    .story-photo-large{min-height:590px}
+    .story-photo-stack{display:grid;grid-template-rows:1fr auto;gap:22px}
+    .story-photo-small{min-height:270px}
+    .photo-caption{padding:24px;background:#e8dfd2}
+    .photo-caption .eyebrow{margin-bottom:12px}
+    .photo-caption h3{font-size:2rem}
+    .photo-caption p{margin-bottom:0;color:var(--muted);font-size:.9rem}
+    /* Values */
+    .values{padding-block:105px;background:var(--charcoal);color:var(--cream)}
+    .values-heading{max-width:700px;margin-bottom:50px}
+    .values .eyebrow{color:#d68b69}
+    .values-heading p{max-width:580px;color:rgba(245,238,227,.68)}
+    .values-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18)}
+    .value-card{padding:35px 30px 38px 0}
+    .value-card+.value-card{padding-left:30px;border-left:1px solid rgba(255,255,255,.18)}
+    .value-number{display:block;margin-bottom:32px;color:#d68b69;font-family:var(--serif);font-size:1.35rem}
+    .value-card h3{font-size:2rem}
+    .value-card p{margin-bottom:0;color:rgba(245,238,227,.66);font-size:.9rem}
+    /* Process */
+    .ritual{padding-block:110px}
+    .ritual-grid{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:clamp(45px,8vw,100px)}
+    .ritual-image{position:relative;min-height:560px}
+    .ritual-image img{position:absolute;inset:0}
+    .ritual-copy p{color:var(--muted)}
+    .ritual-list{display:grid;gap:0;margin:30px 0}
+    .ritual-step{display:grid;grid-template-columns:45px 1fr;gap:16px;padding:19px 0;border-bottom:1px solid var(--line)}
+    .ritual-step:first-child{border-top:1px solid var(--line)}
+    .ritual-step-number{color:var(--ember);font-family:var(--serif);font-size:1.5rem}
+    .ritual-step strong{display:block;margin-bottom:3px;font-size:.9rem}
+    .ritual-step p{margin:0;font-size:.84rem}
+    /* CTA */
+    .closing{position:relative;padding-block:95px;background:#e8dfd2;text-align:center;overflow:hidden}
+    .closing:before,.closing:after{content:"";position:absolute;width:220px;height:220px;border:1px solid rgba(184,93,63,.18);border-radius:50%}
+    .closing:before{left:-100px;top:-90px}
+    .closing:after{right:-100px;bottom:-120px}
+    .closing-inner{position:relative;z-index:1;max-width:760px;margin-inline:auto}
+    .closing h2{margin-bottom:16px}
+    .closing p{max-width:570px;margin:0 auto 28px;color:var(--muted)}
+    .closing-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+    /* Footer */
+    .site-footer{padding:60px 0 22px;background:#20211d;color:var(--cream)}
+    .footer-main{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:45px;padding-bottom:45px}
+    .footer-brand .brand-name strong{font-size:1.7rem}
+    .footer-brand p{max-width:270px;margin-top:20px;color:rgba(245,238,227,.62);font-size:.84rem}
+    .footer-title{margin-bottom:17px;color:#d68b69;font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+    .footer-links{display:grid;gap:10px}
+    .footer-links a,.footer-links span{color:rgba(245,238,227,.75);font-size:.82rem}
+    .footer-links a:hover{color:white}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);color:rgba(245,238,227,.5);font-size:.72rem}
+    @media(max-width:980px){.nav-links{gap:16px}.nav-links a:not(.btn){font-size:.73rem}.brand-name strong{font-size:1.55rem}.footer-main{grid-template-columns:1.3fr 1fr 1fr}.footer-brand{grid-column:1/-1}}
+    @media(max-width:760px){
+      .container{width:min(100% - 36px,var(--container))}.nav-wrap{min-height:74px}.menu-toggle{display:grid;place-items:center}
+      .nav-links{position:absolute;top:calc(100% + 1px);left:0;right:0;display:none;align-items:stretch;gap:0;padding:12px 18px 20px;background:var(--cream);border-bottom:1px solid var(--line);box-shadow:0 18px 25px rgba(41,41,35,.08)}
+      .nav-links.is-open{display:flex;flex-direction:column}.nav-links a:not(.btn){padding:13px 4px;border-bottom:1px solid var(--line);font-size:.88rem}.nav-links .btn{margin-top:15px}
+      .page-hero{min-height:610px}.hero-content{padding-block:100px 55px}.hero-bottom{align-items:flex-start;flex-direction:column}.hero-note{font-size:.62rem}
+      .intro{padding-block:78px}.intro-grid,.ritual-grid{grid-template-columns:1fr;gap:30px}.intro-heading{position:static}.intro-copy .lead{font-size:1.55rem}
+      .story-image-section{padding-bottom:78px}.story-image-grid{grid-template-columns:1fr;gap:16px}.story-photo-large{min-height:430px}.story-photo-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto;gap:16px}.story-photo-small{min-height:230px}.photo-caption{padding:18px}
+      .values{padding-block:78px}.values-grid{grid-template-columns:1fr}.value-card,.value-card+.value-card{padding:25px 0;border-left:0;border-bottom:1px solid rgba(255,255,255,.18)}.value-card:last-child{border-bottom:0}.value-number{margin-bottom:14px}
+      .ritual{padding-block:78px}.ritual-image{min-height:430px;order:2}.ritual-copy{order:1}.closing{padding-block:75px}
+      .footer-main{grid-template-columns:repeat(2,1fr);gap:35px 22px}.footer-brand{grid-column:1/-1}.footer-bottom{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:440px){.container{width:calc(100% - 30px)}h1{font-size:clamp(3.15rem,15vw,4.1rem)}.page-hero{min-height:640px}.story-photo-large{min-height:350px}.story-photo-stack{grid-template-columns:1fr}.story-photo-small{min-height:240px}.ritual-image{min-height:350px}.footer-main{gap:30px 16px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.example.com/#organization",
+        "name": "Ember Cafe",
+        "url": "https://www.example.com/",
+        "description": "A welcoming cafe focused on thoughtful coffee, fresh seasonal food, and hospitality."
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.example.com/our-story#webpage",
+        "url": "https://www.example.com/our-story",
+        "name": "Our Story | Ember Cafe",
+        "isPartOf": {"@id": "https://www.example.com/#website"},
+        "about": {"@id": "https://www.example.com/#organization"},
+        "inLanguage": "en-NZ"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.example.com/#website",
+        "url": "https://www.example.com/",
+        "name": "Ember Cafe",
+        "publisher": {"@id": "https://www.example.com/#organization"},
+        "inLanguage": "en-NZ"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Ember Cafe home">
+        <svg class="brand-mark" viewBox="0 0 60 72" aria-hidden="true"><path fill="currentColor" d="M31 2C40 17 54 25 53 40c-1 16-12 27-25 28C13 66 4 55 5 41 6 29 16 20 21 8c3 11 4 15 10 20 4-9 3-17 0-26Z"/><path fill="#F5EEE3" d="M31 27c-7 9-11 15-9 23 1 6 5 10 10 10 9-2 13-11 8-19-2-4-6-8-9-14Z"/><path d="M31 34c-4 7-5 13 0 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span class="brand-name"><strong>EMBER</strong><small>C A F E</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+      <nav class="nav-links" id="primary-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html" aria-current="page">Our Story</a><a href="catering.html">Catering</a><a href="contact.html">Contact</a><a class="btn" href="contact.html">Visit Ember <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero" aria-labelledby="page-title">
+      <div class="page-hero-image"><img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=2200&q=88" alt="Warm, inviting cafe interior with timber tables and soft natural light" fetchpriority="high"></div>
+      <div class="container hero-content">
+        <span class="eyebrow">The heart behind the coffee</span>
+        <h1 id="page-title">Good things begin<br>around a <em>table.</em></h1>
+        <p class="hero-intro">At Ember, we believe a cafe can be more than a place to grab a coffee. It can be a pause in a busy day, a familiar face, and a reason to come together.</p>
+        <div class="hero-bottom">
+          <a class="btn" href="menu.html">Discover Our Menu <span aria-hidden="true">↗</span></a>
+          <span class="hero-note">Thoughtful coffee · Warm hospitality</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro">
+      <div class="container intro-grid">
+        <div class="intro-heading">
+          <span class="eyebrow">Our philosophy</span>
+          <h2>A simple idea, <em>done thoughtfully.</em></h2>
+        </div>
+        <div class="intro-copy">
+          <p class="lead">Great coffee. Fresh food. A place where you can feel right at home.</p>
+          <p>Ember is built around the small things that make a day better: the first sip of a well-made flat white, a plate prepared with care, and the comfort of sitting down without needing to rush.</p>
+          <p>Our approach is uncomplicated. We focus on quality, treat people warmly, and create a space that feels just as right for a quick morning stop as it does for a long catch-up with friends.</p>
+          <div class="pullquote">“The best moments are often the simplest ones — especially when they're shared.”</div>
+          <p>That's the spirit we want to bring to every cup, every plate, and every visit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="story-image-section">
+      <div class="container story-image-grid">
+        <div class="story-photo-large"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=85" alt="Welcoming cafe seating with natural textures and warm light" loading="lazy"></div>
+        <div class="story-photo-stack">
+          <div class="story-photo-small"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=85" alt="Coffee being prepared at a cafe" loading="lazy"></div>
+          <div class="photo-caption">
+            <span class="eyebrow">The Ember feeling</span>
+            <h3>Come as you are. Stay a little.</h3>
+            <p>A welcoming corner for everyday rituals, easy conversations, and something delicious.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="values">
+      <div class="container">
+        <div class="values-heading">
+          <span class="eyebrow">What matters to us</span>
+          <h2>Good at heart.<br><em>Warm by nature.</em></h2>
+          <p>Our values show up in the details — in what we serve, how we welcome you, and the atmosphere we create together.</p>
+        </div>
+        <div class="values-grid">
+          <article class="value-card">
+            <span class="value-number">01 / Quality</span>
+            <h3>Thoughtfully chosen.</h3>
+            <p>We believe good ingredients and well-made coffee are worth paying attention to. Every choice should help make the experience better.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-number">02 / Care</span>
+            <h3>Made with intention.</h3>
+            <p>From a carefully prepared drink to a fresh plate of food, we value the craft and consideration behind the everyday.</p>
+          </article>
+          <article class="value-card">
+            <span class="value-number">03 / Connection</span>
+            <h3>Better together.</h3>
+            <p>A cafe should make it easy to connect — with friends, family, colleagues, or simply the neighbourhood around you.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="ritual">
+      <div class="container ritual-grid">
+        <div class="ritual-image"><img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1100&q=85" alt="Cafe tables and a relaxed, welcoming interior" loading="lazy"></div>
+        <div class="ritual-copy">
+          <span class="eyebrow">The everyday, elevated</span>
+          <h2>Little rituals.<br><em>Lovely moments.</em></h2>
+          <p>Not every visit needs a special occasion. Sometimes it's the coffee you look forward to, the familiar order, or the extra ten minutes you give yourself before the day begins.</p>
+          <div class="ritual-list">
+            <div class="ritual-step"><span class="ritual-step-number">01</span><div><strong>Start with something good</strong><p>A thoughtfully made coffee or tea, just the way you like it.</p></div></div>
+            <div class="ritual-step"><span class="ritual-step-number">02</span><div><strong>Stay for a bite</strong><p>Fresh brunch, a light lunch, or a sweet treat from the cabinet.</p></div></div>
+            <div class="ritual-step"><span class="ritual-step-number">03</span><div><strong>Make it a moment</strong><p>Catch up, take a breath, or simply enjoy a little time for yourself.</p></div></div>
+          </div>
+          <a class="text-link" href="menu.html">Explore the menu <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container closing-inner">
+        <span class="eyebrow">There's a seat for you</span>
+        <h2>Come for the coffee.<br><em>Stay for the feeling.</em></h2>
+        <p>Whether it's your first visit or part of your daily routine, we'd love to welcome you to Ember.</p>
+        <div class="closing-actions"><a class="btn" href="contact.html">Plan Your Visit <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="menu.html">See the Menu</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Ember Cafe home">
+            <svg class="brand-mark" viewBox="0 0 60 72" aria-hidden="true"><path fill="currentColor" d="M31 2C40 17 54 25 53 40c-1 16-12 27-25 28C13 66 4 55 5 41 6 29 16 20 21 8c3 11 4 15 10 20 4-9 3-17 0-26Z"/><path fill="#20211d" d="M31 27c-7 9-11 15-9 23 1 6 5 10 10 10 9-2 13-11 8-19-2-4-6-8-9-14Z"/><path d="M31 34c-4 7-5 13 0 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+            <span class="brand-name"><strong>EMBER</strong><small>C A F E</small></span>
+          </a>
+          <p>Thoughtful coffee, fresh seasonal food, and a welcoming place to slow down.</p>
+        </div>
+        <div><div class="footer-title">Explore</div><div class="footer-links"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">Our Story</a><a href="catering.html">Catering & Events</a></div></div>
+        <div><div class="footer-title">Visit</div><div class="footer-links"><a href="contact.html">Find Us</a><a href="contact.html">Opening Hours</a><a href="contact.html">Get in Touch</a></div></div>
+        <div><div class="footer-title">Stay connected</div><div class="footer-links"><a href="#" aria-label="Instagram (replace with actual profile)">Instagram</a><a href="#" aria-label="Facebook (replace with actual page)">Facebook</a><span>Good food. Great coffee.</span></div></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Ember Cafe. All good things reserved.</span><span>Made with warmth.</span></div>
+    </div>
+  </footer>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('#primary-nav');
+    const menuIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>';
+    const closeIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>';
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      toggle.innerHTML = open ? closeIcon : menuIcon;
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation');
+      toggle.innerHTML = menuIcon;
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

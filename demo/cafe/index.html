@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#292923">
+  <title>Ember Cafe | Good Coffee. Good Food. Good Energy.</title>
+  <meta name="description"
+    content="Thoughtful coffee, fresh seasonal food, and a welcoming place to slow down. Discover the Ember Cafe menu and plan your next visit.">
+  <link rel="canonical" href="https://www.example.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ember Cafe | Find Your Warmth">
+  <meta property="og:description" content="Thoughtful coffee, fresh seasonal food, and a welcoming place to slow down.">
+  <meta property="og:image"
+    content="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85">
+  <meta property="og:url" content="https://www.example.com/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ember: #B85D3F;
+      --ember-dark: #93452f;
+      --charcoal: #292923;
+      --cream: #F5EEE3;
+      --sage: #89917A;
+      --muted: #71695f;
+      --white: #fffdf9;
+      --line: rgba(41, 41, 35, .15);
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+      --radius: 4px;
+      --container: 1180px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-family: var(--sans);
+      line-height: 1.65;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--ember);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ember);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -.025em;
+    }
+
+    h1 {
+      font-size: clamp(3.6rem, 7.2vw, 6.8rem);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(2.7rem, 5vw, 4.6rem);
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .lead {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 13px 22px;
+      border: 1px solid var(--ember);
+      background: var(--ember);
+      color: white;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      transition: background .2s, color .2s, transform .2s;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: var(--ember-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn--outline {
+      background: transparent;
+      color: var(--charcoal);
+      border-color: rgba(41, 41, 35, .45);
+    }
+
+    .btn--outline:hover {
+      background: var(--charcoal);
+      color: white;
+      border-color: var(--charcoal);
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid var(--ember);
+      color: var(--charcoal);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .text-link span {
+      color: var(--ember);
+      font-size: 1.15rem;
+      transition: transform .2s;
+    }
+
+    .text-link:hover span {
+      transform: translateX(4px);
+    }
+
+    /* Header */
+    .site-header {
+      position: sticky;
+      z-index: 20;
+      top: 0;
+      background: rgba(245, 238, 227, .96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-wrap {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 43px;
+      color: var(--ember);
+    }
+
+    .brand-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-name strong {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+    }
+
+    .brand-name small {
+      margin-top: 5px;
+      font-size: .57rem;
+      letter-spacing: .38em;
+      text-align: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.7vw, 38px);
+    }
+
+    .nav-links a:not(.btn) {
+      font-size: .78rem;
+      font-weight: 600;
+      transition: color .2s;
+    }
+
+    .nav-links a:not(.btn):hover {
+      color: var(--ember);
+    }
+
+    .nav-links .btn {
+      min-height: 43px;
+      padding: 10px 18px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--charcoal);
+      cursor: pointer;
+    }
+
+    .menu-toggle svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: min(740px, calc(100svh - 86px));
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      background: #3b332b;
+      color: white;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-image img {
+      object-position: center 56%;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(24, 25, 21, .82) 0%, rgba(24, 25, 21, .59) 43%, rgba(24, 25, 21, .12) 100%), linear-gradient(0deg, rgba(24, 25, 21, .3), transparent 45%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding-block: 100px 120px;
+    }
+
+    .hero .eyebrow {
+      color: #e5b69b;
+    }
+
+    .hero h1 {
+      max-width: 780px;
+    }
+
+    .hero h1 em {
+      color: #e5b69b;
+      font-weight: 400;
+    }
+
+    .hero-copy {
+      max-width: 480px;
+      margin-bottom: 32px;
+      color: rgba(255, 255, 255, .82);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero .btn--outline {
+      color: white;
+      border-color: rgba(255, 255, 255, .65);
+    }
+
+    .hero .btn--outline:hover {
+      color: var(--charcoal);
+      background: white;
+      border-color: white;
+    }
+
+    .hero-note {
+      position: absolute;
+      z-index: 2;
+      right: max(24px, calc((100vw - var(--container))/2));
+      bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: rgba(255, 255, 255, .8);
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .hero-note::before {
+      content: "";
+      width: 38px;
+      height: 1px;
+      background: #e5b69b;
+    }
+
+    /* Intro strip */
+    .value-strip {
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .value-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 27px 18px;
+      border-right: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .value-item:last-child {
+      border-right: 0;
+    }
+
+    .value-icon {
+      width: 32px;
+      height: 32px;
+      color: #d68b69;
+      flex-shrink: 0;
+    }
+
+    .value-item strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .value-item span {
+      display: block;
+      color: rgba(245, 238, 227, .66);
+      font-size: .72rem;
+    }
+
+    /* Sections */
+    .section {
+      padding-block: 112px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 42px;
+    }
+
+    .section-heading>div {
+      max-width: 650px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      max-width: 530px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .menu-card {
+      min-width: 0;
+    }
+
+    .menu-card-image {
+      position: relative;
+      aspect-ratio: 4/4.5;
+      overflow: hidden;
+      background: #e2d6c6;
+    }
+
+    .menu-card-image img {
+      transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .menu-card:hover .menu-card-image img {
+      transform: scale(1.055);
+    }
+
+    .menu-card-image .tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 6px 10px;
+      background: var(--cream);
+      color: var(--charcoal);
+      font-size: .63rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .menu-card-info {
+      padding-top: 17px;
+    }
+
+    .menu-card-title {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .menu-card h3 {
+      font-size: 1.55rem;
+      line-height: 1.08;
+    }
+
+    .price {
+      padding-top: 4px;
+      color: var(--ember);
+      font-size: .83rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .menu-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .menu-bottom {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    /* Story */
+    .story {
+      padding-block: 35px 110px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.04fr .96fr;
+      align-items: center;
+      gap: clamp(45px, 8vw, 112px);
+    }
+
+    .story-visual {
+      position: relative;
+      min-height: 580px;
+    }
+
+    .story-main-image {
+      position: absolute;
+      inset: 0 48px 40px 0;
+    }
+
+    .story-main-image img {
+      object-position: 50% 50%;
+    }
+
+    .story-small-image {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 46%;
+      height: 42%;
+      border: 10px solid var(--cream);
+    }
+
+    .story-stamp {
+      position: absolute;
+      left: -22px;
+      top: 38px;
+      width: 104px;
+      height: 104px;
+      display: grid;
+      place-items: center;
+      padding: 15px;
+      border-radius: 50%;
+      background: var(--ember);
+      color: white;
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      line-height: 1.05;
+      transform: rotate(-10deg);
+    }
+
+    .story-copy h2 {
+      max-width: 520px;
+    }
+
+    .story-copy .lead {
+      margin-bottom: 20px;
+    }
+
+    .story-copy p:not(.lead) {
+      color: var(--muted);
+    }
+
+    .story-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 30px 0 34px;
+      padding-block: 22px;
+      border-block: 1px solid var(--line);
+    }
+
+    .story-point strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+
+    .story-point span {
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    /* Experience */
+    .experience {
+      background: #e8dfd2;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .experience-copy h2 {
+      max-width: 470px;
+    }
+
+    .experience-copy p {
+      max-width: 440px;
+      color: var(--muted);
+    }
+
+    .experience-points {
+      display: grid;
+      gap: 17px;
+      margin: 28px 0 32px;
+    }
+
+    .experience-point {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+
+    .check {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      border: 1px solid rgba(184, 93, 63, .5);
+      border-radius: 50%;
+      color: var(--ember);
+      font-size: .8rem;
+      flex-shrink: 0;
+    }
+
+    .experience-image {
+      position: relative;
+      aspect-ratio: 1.15;
+    }
+
+    .experience-image img {
+      position: absolute;
+      inset: 0;
+    }
+
+    .image-caption {
+      position: absolute;
+      right: -18px;
+      bottom: 28px;
+      max-width: 235px;
+      padding: 20px 24px;
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+
+    .image-caption span {
+      display: block;
+      margin-bottom: 4px;
+      color: #d68b69;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .image-caption strong {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+
+    /* Quote */
+    .quote-section {
+      padding-block: 100px;
+      background: var(--charcoal);
+      color: var(--cream);
+      text-align: center;
+    }
+
+    .quote-mark {
+      color: #d68b69;
+      font-family: var(--serif);
+      font-size: 5rem;
+      line-height: .8;
+    }
+
+    .quote-section blockquote {
+      max-width: 800px;
+      margin: 20px auto 22px;
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.12;
+    }
+
+    .quote-section p {
+      margin-bottom: 0;
+      color: rgba(245, 238, 227, .62);
+      font-size: .76rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    /* Visit */
+    .visit {
+      padding-block: 105px;
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .visit-copy h2 {
+      max-width: 540px;
+    }
+
+    .visit-copy>p {
+      max-width: 480px;
+      color: var(--muted);
+    }
+
+    .visit-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin: 30px 0;
+    }
+
+    .detail-label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--ember);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .detail-value {
+      color: var(--charcoal);
+      font-size: .88rem;
+    }
+
+    .visit-photo {
+      min-height: 420px;
+      overflow: hidden;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 60px 0 22px;
+      background: #20211d;
+      color: var(--cream);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 45px;
+      padding-bottom: 45px;
+    }
+
+    .footer-brand .brand-name strong {
+      font-size: 1.7rem;
+    }
+
+    .footer-brand p {
+      max-width: 270px;
+      margin-top: 20px;
+      color: rgba(245, 238, 227, .62);
+      font-size: .84rem;
+    }
+
+    .footer-title {
+      margin-bottom: 17px;
+      color: #d68b69;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-links a,
+    .footer-links span {
+      color: rgba(245, 238, 227, .75);
+      font-size: .82rem;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, .15);
+      color: rgba(245, 238, 227, .5);
+      font-size: .72rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    .social-links a {
+      color: rgba(245, 238, 227, .75);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .nav-links {
+        gap: 16px;
+      }
+
+      .nav-links a:not(.btn) {
+        font-size: .73rem;
+      }
+
+      .brand-name strong {
+        font-size: 1.55rem;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 22px;
+      }
+
+      .story-grid {
+        gap: 50px;
+      }
+
+      .story-visual {
+        min-height: 500px;
+      }
+
+      .experience-grid {
+        gap: 40px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1.3fr 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 36px, var(--container));
+      }
+
+      .nav-wrap {
+        min-height: 74px;
+      }
+
+      .menu-toggle {
+        display: grid;
+        place-items: center;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: 0;
+        right: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 18px 20px;
+        background: var(--cream);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 18px 25px rgba(41, 41, 35, .08);
+      }
+
+      .nav-links.is-open {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .nav-links a:not(.btn) {
+        padding: 13px 4px;
+        border-bottom: 1px solid var(--line);
+        font-size: .88rem;
+      }
+
+      .nav-links .btn {
+        margin-top: 15px;
+      }
+
+      .hero {
+        min-height: 690px;
+        min-height: min(740px, calc(100svh - 74px));
+      }
+
+      .hero-content {
+        padding-block: 90px 110px;
+      }
+
+      .hero::after {
+        background: linear-gradient(90deg, rgba(24, 25, 21, .79), rgba(24, 25, 21, .4)), linear-gradient(0deg, rgba(24, 25, 21, .3), transparent 60%);
+      }
+
+      .hero-note {
+        right: 18px;
+        bottom: 20px;
+        font-size: .58rem;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+        padding-block: 8px;
+      }
+
+      .value-item {
+        justify-content: flex-start;
+        padding: 17px 5px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, .14);
+      }
+
+      .value-item:last-child {
+        border-bottom: 0;
+      }
+
+      .section {
+        padding-block: 78px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 30px;
+      }
+
+      .menu-grid {
+        gap: 28px 14px;
+      }
+
+      .menu-card h3 {
+        font-size: 1.35rem;
+      }
+
+      .menu-card-title {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .price {
+        padding-top: 0;
+      }
+
+      .story {
+        padding-block: 15px 78px;
+      }
+
+      .story-grid,
+      .experience-grid,
+      .visit-grid {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+
+      .story-visual {
+        min-height: min(118vw, 520px);
+      }
+
+      .story-stamp {
+        left: -8px;
+        width: 88px;
+        height: 88px;
+        font-size: .95rem;
+      }
+
+      .story-copy {
+        order: -1;
+      }
+
+      .story-points {
+        gap: 10px;
+      }
+
+      .story-point strong {
+        font-size: 1.08rem;
+      }
+
+      .story-point span {
+        font-size: .67rem;
+      }
+
+      .experience-grid {
+        gap: 35px;
+      }
+
+      .experience-image {
+        aspect-ratio: 1.05;
+        margin-right: 12px;
+      }
+
+      .image-caption {
+        right: -12px;
+        bottom: 18px;
+        max-width: 205px;
+        padding: 16px 18px;
+      }
+
+      .quote-section {
+        padding-block: 76px;
+      }
+
+      .visit {
+        padding-block: 78px;
+      }
+
+      .visit-photo {
+        min-height: 320px;
+      }
+
+      .footer-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px 22px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: calc(100% - 30px);
+      }
+
+      .brand-mark {
+        width: 31px;
+        height: 38px;
+      }
+
+      .brand-name strong {
+        font-size: 1.45rem;
+      }
+
+      h1 {
+        font-size: clamp(3.1rem, 15vw, 4.2rem);
+      }
+
+      .hero-copy {
+        font-size: .95rem;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+        max-width: 270px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .menu-card-image {
+        aspect-ratio: 3/3.7;
+      }
+
+      .menu-card h3 {
+        font-size: 1.23rem;
+      }
+
+      .menu-card p {
+        font-size: .78rem;
+      }
+
+      .visit-details {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .footer-main {
+        gap: 30px 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.example.com/#organization",
+        "name": "Ember Cafe",
+        "url": "https://www.example.com/",
+        "description": "A welcoming neighbourhood cafe serving thoughtful coffee and fresh seasonal food."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.example.com/#website",
+        "url": "https://www.example.com/",
+        "name": "Ember Cafe",
+        "publisher": {"@id": "https://www.example.com/#organization"},
+        "inLanguage": "en-NZ"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Ember Cafe home">
+        <svg class="brand-mark" viewBox="0 0 60 72" aria-hidden="true">
+          <path fill="currentColor"
+            d="M31 2C40 17 54 25 53 40c-1 16-12 27-25 28C13 66 4 55 5 41 6 29 16 20 21 8c3 11 4 15 10 20 4-9 3-17 0-26Z" />
+          <path fill="#F5EEE3" d="M31 27c-7 9-11 15-9 23 1 6 5 10 10 10 9-2 13-11 8-19-2-4-6-8-9-14Z" />
+          <path d="M31 34c-4 7-5 13 0 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+        <span class="brand-name"><strong>EMBER</strong><small> C A F E </small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+        aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <path d="M3 7h18M3 12h18M3 17h18" />
+        </svg>
+      </button>
+      <nav class="nav-links" id="primary-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">Our Story</a>
+        <a href="catering.html">Catering</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn" href="contact.html">Visit Ember <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=2200&q=88"
+          alt="Warm cafe counter with freshly prepared coffee" fetchpriority="high">
+      </div>
+      <div class="container hero-content">
+        <span class="eyebrow">Your neighbourhood coffee spot</span>
+        <h1 id="hero-title">Find Your<br><em>Warmth</em> at Ember.</h1>
+        <p class="hero-copy">Thoughtful coffee, fresh seasonal food, and a welcoming place to slow down. Come for your
+          morning ritual, stay for the moment.</p>
+        <div class="hero-actions">
+          <a class="btn" href="menu.html">Explore Our Menu <span aria-hidden="true">↗</span></a>
+          <a class="btn btn--outline" href="contact.html">Come Visit Us</a>
+        </div>
+      </div>
+      <div class="hero-note">Good food. Great coffee. Real moments.</div>
+    </section>
+
+    <section class="value-strip" aria-label="Our values">
+      <div class="container value-grid">
+        <div class="value-item">
+          <svg class="value-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"
+            aria-hidden="true">
+            <path d="M8 16h24l-2 15H10L8 16Z" />
+            <path d="M12 16c0-5 4-8 8-8s8 3 8 8M15 22c2 2 2 5 0 7M22 21c2 2 2 5 0 7" />
+          </svg>
+          <div><strong>Great Coffee</strong><span>Made with care, every cup</span></div>
+        </div>
+        <div class="value-item">
+          <svg class="value-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"
+            aria-hidden="true">
+            <path d="M20 33S6 25 7 15c1-7 9-8 13-2 4-6 12-5 13 2 1 10-13 18-13 18Z" />
+            <path d="M20 13c-3 4-4 7-2 11" />
+          </svg>
+          <div><strong>Fresh Food</strong><span>Seasonal, simple, satisfying</span></div>
+        </div>
+        <div class="value-item">
+          <svg class="value-icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"
+            aria-hidden="true">
+            <circle cx="15" cy="13" r="5" />
+            <circle cx="27" cy="15" r="4" />
+            <path d="M5 31c0-7 4-11 10-11s10 4 10 11M23 23c6-2 12 2 12 8" />
+          </svg>
+          <div><strong>Cozy Atmosphere</strong><span>A little space to reconnect</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">A taste of Ember</span>
+            <h2>Good things, <em>made fresh.</em></h2>
+            <p>From your first flat white to a long, lazy brunch, find a new favourite or return to an old one.</p>
+          </div>
+          <a class="text-link" href="contact.html">View the full menu <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <div class="menu-card-image">
+              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=85"
+                alt="Creamy iced coffee in a clear glass" loading="lazy">
+              <span class="tag">House favourite</span>
+            </div>
+            <div class="menu-card-info">
+              <div class="menu-card-title">
+                <h3>Ember Iced Latte</h3><span class="price">$6.50</span>
+              </div>
+              <p>Rich espresso, chilled milk and a little moment to yourself.</p>
+            </div>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card-image">
+              <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=700&q=85"
+                alt="Fresh brunch plate with eggs and avocado" loading="lazy">
+            </div>
+            <div class="menu-card-info">
+              <div class="menu-card-title">
+                <h3>Avocado Sourdough</h3><span class="price">$18</span>
+              </div>
+              <p>Crushed avocado, toasted sourdough and bright seasonal toppings.</p>
+            </div>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card-image">
+              <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=700&q=85"
+                alt="Golden French toast with fresh fruit" loading="lazy">
+              <span class="tag">Brunch favourite</span>
+            </div>
+            <div class="menu-card-info">
+              <div class="menu-card-title">
+                <h3>Seasonal Hotcakes</h3><span class="price">$20</span>
+              </div>
+              <p>Fluffy hotcakes, seasonal fruit and a generous drizzle of sweetness.</p>
+            </div>
+          </article>
+          <article class="menu-card">
+            <div class="menu-card-image">
+              <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=700&q=85"
+                alt="Freshly baked artisan pastries" loading="lazy">
+            </div>
+            <div class="menu-card-info">
+              <div class="menu-card-title">
+                <h3>Bakery Treats</h3><span class="price">From $6</span>
+              </div>
+              <p>Cabinet favourites, baked goods and something lovely with coffee.</p>
+            </div>
+          </article>
+        </div>
+        <div class="menu-bottom"><a class="btn btn--outline" href="contact.html">See You at the Table <span
+              aria-hidden="true">↗</span></a></div>
+      </div>
+    </section>
+
+    <section class="story" id="story">
+      <div class="container story-grid">
+        <div class="story-visual">
+          <div class="story-main-image"><img
+              src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=85"
+              alt="Inviting cafe interior with warm timber and natural light" loading="lazy"></div>
+          <div class="story-small-image"><img
+              src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=85"
+              alt="Barista preparing a fresh cup of coffee" loading="lazy"></div>
+          <div class="story-stamp">Made with<br>care, served<br>with warmth.</div>
+        </div>
+        <div class="story-copy">
+          <span class="eyebrow">A little about us</span>
+          <h2>A little more than your <em>morning coffee.</em></h2>
+          <p class="lead">We believe the best moments often happen around a table.</p>
+          <p>Ember is built around the simple things done thoughtfully: coffee made with care, fresh food worth
+            lingering over, and a space where everyone can feel at home.</p>
+          <p>Whether you're catching up with a friend, taking a well-earned pause, or easing into the day, we're here to
+            make the everyday feel a little more special.</p>
+          <div class="story-points">
+            <div class="story-point"><strong>Quality</strong><span>Thoughtfully chosen</span></div>
+            <div class="story-point"><strong>Care</strong><span>Made with intention</span></div>
+            <div class="story-point"><strong>Connection</strong><span>Shared together</span></div>
+          </div>
+          <a class="text-link" href="contact.html">Come meet us <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experience" id="catering">
+      <div class="container experience-grid">
+        <div class="experience-copy">
+          <span class="eyebrow">Gather around</span>
+          <h2>Make room for <em>good moments.</em></h2>
+          <p>From a team morning tea to a table full of friends, bring a little Ember to the occasions worth sharing.
+          </p>
+          <div class="experience-points">
+            <div class="experience-point"><span class="check" aria-hidden="true">✓</span> Office coffee and morning tea
+            </div>
+            <div class="experience-point"><span class="check" aria-hidden="true">✓</span> Fresh brunch and savoury
+              platters</div>
+            <div class="experience-point"><span class="check" aria-hidden="true">✓</span> Sweet treats for sharing</div>
+          </div>
+          <a class="btn" href="contact.html">Ask About Catering <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="experience-image">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1100&q=85"
+            alt="Warm cafe space ready to welcome guests" loading="lazy">
+          <div class="image-caption"><span>Made for sharing</span><strong>Good food.<br>Better company.</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section" aria-label="Our philosophy">
+      <div class="container">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <blockquote>Life feels a little lighter when there's good coffee and good company.</blockquote>
+        <p>The Ember way</p>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="container visit-grid">
+        <div class="visit-copy">
+          <span class="eyebrow">Come on in</span>
+          <h2>Your table is <em>waiting.</em></h2>
+          <p>Pop in for your daily coffee, stay for brunch, or bring someone along for a catch-up. We'd love to see you.
+          </p>
+          <div class="visit-details">
+            <div><span class="detail-label">Find us</span>
+              <div class="detail-value">Add your cafe address<br>New Zealand</div>
+            </div>
+            <div><span class="detail-label">Opening hours</span>
+              <div class="detail-value">Add confirmed opening hours<br>before publishing</div>
+            </div>
+            <div><span class="detail-label">Say hello</span>
+              <div class="detail-value">Add your phone number<br>and email address</div>
+            </div>
+            <div><span class="detail-label">Follow along</span>
+              <div class="detail-value"><a href="#social">Instagram · Facebook</a></div>
+            </div>
+          </div>
+          <a class="btn" href="mailto:hello@example.com">Get in Touch <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="visit-photo">
+          <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=1000&q=85"
+            alt="Cosy neighbourhood cafe with tables and warm interior details" loading="lazy">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="social">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="#home" aria-label="Ember Cafe home">
+            <svg class="brand-mark" viewBox="0 0 60 72" aria-hidden="true">
+              <path fill="currentColor"
+                d="M31 2C40 17 54 25 53 40c-1 16-12 27-25 28C13 66 4 55 5 41 6 29 16 20 21 8c3 11 4 15 10 20 4-9 3-17 0-26Z" />
+              <path fill="#20211d" d="M31 27c-7 9-11 15-9 23 1 6 5 10 10 10 9-2 13-11 8-19-2-4-6-8-9-14Z" />
+              <path d="M31 34c-4 7-5 13 0 19" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" />
+            </svg>
+            <span class="brand-name"><strong>EMBER</strong><small> C A F E </small></span>
+          </a>
+          <p>Thoughtful coffee, fresh seasonal food, and a welcoming place to slow down.</p>
+        </div>
+        <div>
+          <div class="footer-title">Explore</div>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">Our Story</a>
+            <a href="catering.html">Catering & Events</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">Visit</div>
+          <div class="footer-links">
+            <a href="contact.html">Find Us</a>
+            <a href="contact.html">Opening Hours</a>
+            <a href="contact.html">Get in Touch</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-title">Stay connected</div>
+          <div class="footer-links"><a href="#social">Instagram</a><a href="#social">Facebook</a><a
+              href="#social">Updates & Specials</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Ember Cafe. All good things reserved.</span><span>Made
+          with warmth.</span></div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('#primary-nav');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+      menuToggle.innerHTML = isOpen
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>';
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+        menuToggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>';
+      });
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

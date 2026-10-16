@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#292923">
+  <title>Menu | Ember Cafe</title>
+  <meta name="description" content="Explore the Ember Cafe menu: thoughtfully made coffee, brunch favourites, fresh seasonal plates, and something sweet.">
+  <link rel="canonical" href="https://www.example.com/menu">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ember Cafe">
+  <meta property="og:title" content="Menu | Ember Cafe">
+  <meta property="og:description" content="Thoughtfully made coffee, brunch favourites, fresh seasonal plates, and something sweet.">
+  <meta property="og:url" content="https://www.example.com/menu">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Menu | Ember Cafe">
+  <meta name="twitter:description" content="Thoughtfully made coffee, brunch favourites, fresh seasonal plates, and something sweet.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{--ember:#B85D3F;--ember-dark:#93452f;--charcoal:#292923;--cream:#F5EEE3;--sage:#89917A;--muted:#71695f;--white:#fffdf9;--line:rgba(41,41,35,.15);--serif:"Cormorant Garamond",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;--container:1180px}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
+    body{margin:0;background:var(--cream);color:var(--charcoal);font-family:var(--sans);line-height:1.7}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    a{color:inherit;text-decoration:none}
+    :focus-visible{outline:3px solid var(--ember);outline-offset:4px}
+    .container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--ember);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:26px;height:1px;background:currentColor}
+    h1,h2,h3,p{margin-top:0}
+    h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.025em}
+    h1{font-size:clamp(3.6rem,7.2vw,6.6rem);margin-bottom:20px}
+    h2{font-size:clamp(2.6rem,5vw,4.3rem);margin-bottom:18px}
+    h3{font-size:1.8rem;margin-bottom:8px}
+    em{color:var(--ember);font-weight:400}
+    .lead{max-width:610px;color:var(--muted);font-size:1.05rem}
+    .btn{display:inline-flex;min-height:49px;align-items:center;justify-content:center;gap:12px;padding:12px 21px;border:1px solid var(--ember);background:var(--ember);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.06em;transition:background .2s,transform .2s}
+    .btn:hover{background:var(--ember-dark);transform:translateY(-2px)}
+    .btn-outline{background:transparent;color:var(--charcoal);border-color:rgba(41,41,35,.4)}
+    .btn-outline:hover{background:var(--charcoal);color:white;border-color:var(--charcoal)}
+    /* Header */
+    .site-header{position:sticky;z-index:20;top:0;background:rgba(245,238,227,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+    .nav-wrap{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:inline-flex;align-items:center;gap:11px;flex-shrink:0}
+    .brand-mark{width:36px;height:43px;color:var(--ember)}
+    .brand-name{display:flex;flex-direction:column;line-height:1}
+    .brand-name strong{font-family:var(--serif);font-size:1.8rem;font-weight:600;letter-spacing:.08em}
+    .brand-name small{margin-top:5px;font-size:.57rem;letter-spacing:.38em;text-align:center}
+    .nav-links{display:flex;align-items:center;gap:clamp(18px,2.7vw,38px)}
+    .nav-links a:not(.btn){font-size:.78rem;font-weight:600;transition:color .2s}
+    .nav-links a:not(.btn):hover,.nav-links a[aria-current="page"]{color:var(--ember)}
+    .nav-links .btn{min-height:43px;padding:10px 18px}
+    .menu-toggle{display:none;width:44px;height:44px;border:1px solid var(--line);background:transparent;color:var(--charcoal);cursor:pointer}
+    .menu-toggle svg{width:22px;height:22px}
+    /* Hero */
+    .menu-hero{display:grid;grid-template-columns:1.02fr .98fr;min-height:510px;background:#e8dfd2}
+    .hero-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:76px max(30px,calc((100vw - var(--container))/2)) 76px max(24px,calc((100vw - var(--container))/2))}
+    .hero-copy h1{max-width:620px}
+    .hero-copy .lead{margin-bottom:28px}
+    .hero-image{min-height:510px;overflow:hidden}
+    .hero-image img{object-position:center}
+    .hero-note{margin-top:24px;color:var(--muted);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase}
+    /* Menu navigation */
+    .menu-jump{position:sticky;z-index:10;top:86px;background:var(--white);border-bottom:1px solid var(--line)}
+    .menu-jump-inner{display:flex;align-items:center;justify-content:center;gap:clamp(18px,4vw,48px);min-height:66px;overflow-x:auto}
+    .menu-jump a{white-space:nowrap;font-size:.77rem;font-weight:700;color:var(--muted);transition:color .2s}
+    .menu-jump a:hover{color:var(--ember)}
+    /* Feature */
+    .menu-intro{padding:85px 0 35px;text-align:center}
+    .menu-intro .lead{margin-inline:auto}
+    .menu-section{padding:58px 0 82px}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:32px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+    .section-head h2{margin:8px 0 0}
+    .section-head p{max-width:390px;margin:0;color:var(--muted);font-size:.9rem}
+    .menu-layout{display:grid;grid-template-columns:1fr 1fr;gap:0 64px}
+    .menu-item{display:grid;grid-template-columns:1fr auto;gap:8px 20px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .menu-item h3{margin:0;font-size:1.55rem;letter-spacing:0}
+    .menu-item .price{padding-top:4px;color:var(--ember);font-size:.95rem;font-weight:700;white-space:nowrap}
+    .menu-item p{grid-column:1/-1;max-width:490px;margin:0;color:var(--muted);font-size:.86rem;line-height:1.65}
+    .dietary{display:inline-flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+    .dietary span{padding:2px 7px;border:1px solid rgba(137,145,122,.5);color:#5f6b53;font-size:.62rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .section-note{margin-top:25px;color:var(--muted);font-size:.76rem}
+    /* Coffee feature */
+    .coffee-feature{display:grid;grid-template-columns:.95fr 1.05fr;min-height:440px;background:var(--charcoal);color:var(--cream)}
+    .coffee-photo{min-height:440px}
+    .coffee-copy{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:clamp(35px,6vw,78px)}
+    .coffee-copy .eyebrow{color:#d68b69}
+    .coffee-copy h2{max-width:520px}
+    .coffee-copy p{max-width:500px;color:rgba(245,238,227,.68)}
+    .coffee-list{display:grid;grid-template-columns:1fr 1fr;gap:0 28px;width:100%;margin-top:12px}
+    .coffee-item{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.16);font-size:.83rem}
+    .coffee-item span:last-child{color:#e5b69b;white-space:nowrap}
+    /* Sweet section */
+    .sweet-section{padding:90px 0}
+    .sweet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .sweet-card{background:var(--white)}
+    .sweet-card img{height:255px}
+    .sweet-card-body{padding:22px}
+    .sweet-card-top{display:flex;align-items:start;justify-content:space-between;gap:12px}
+    .sweet-card h3{font-size:1.65rem}
+    .sweet-card .price{color:var(--ember);font-weight:700;font-size:.88rem;white-space:nowrap}
+    .sweet-card p{margin:0;color:var(--muted);font-size:.84rem}
+    /* CTA */
+    .closing{padding:88px 0;background:#e8dfd2;text-align:center}
+    .closing-inner{max-width:740px;margin:auto}
+    .closing h2{margin-bottom:16px}
+    .closing p{max-width:560px;margin:0 auto 27px;color:var(--muted)}
+    .closing-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+    /* Footer */
+    .site-footer{padding:60px 0 22px;background:#20211d;color:var(--cream)}
+    .footer-main{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:45px;padding-bottom:45px}
+    .footer-brand .brand-name strong{font-size:1.7rem}
+    .footer-brand p{max-width:270px;margin-top:20px;color:rgba(245,238,227,.62);font-size:.84rem}
+    .footer-title{margin-bottom:17px;color:#d68b69;font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+    .footer-links{display:grid;gap:10px}
+    .footer-links a,.footer-links span{color:rgba(245,238,227,.75);font-size:.82rem}
+    .footer-links a:hover{color:white}
+    .footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);color:rgba(245,238,227,.5);font-size:.72rem}
+    @media(max-width:980px){.nav-links{gap:16px}.nav-links a:not(.btn){font-size:.73rem}.brand-name strong{font-size:1.55rem}.footer-main{grid-template-columns:1.3fr 1fr 1fr}.footer-brand{grid-column:1/-1}.menu-layout{gap:0 35px}.hero-copy{padding-right:35px}}
+    @media(max-width:760px){
+      .container{width:min(100% - 36px,var(--container))}.nav-wrap{min-height:74px}.menu-toggle{display:grid;place-items:center}
+      .nav-links{position:absolute;top:calc(100% + 1px);left:0;right:0;display:none;align-items:stretch;gap:0;padding:12px 18px 20px;background:var(--cream);border-bottom:1px solid var(--line);box-shadow:0 18px 25px rgba(41,41,35,.08)}
+      .nav-links.is-open{display:flex;flex-direction:column}.nav-links a:not(.btn){padding:13px 4px;border-bottom:1px solid var(--line);font-size:.88rem}.nav-links .btn{margin-top:15px}
+      .menu-hero{grid-template-columns:1fr}.hero-copy{padding:72px 24px 55px}.hero-image{min-height:340px;max-height:430px}
+      .menu-jump{top:74px}.menu-jump-inner{justify-content:flex-start;min-height:58px;gap:25px}
+      .menu-intro{padding:65px 0 15px}.menu-section{padding:48px 0 62px}.section-head{align-items:flex-start;flex-direction:column;gap:12px}.menu-layout{grid-template-columns:1fr;gap:0}
+      .coffee-feature{grid-template-columns:1fr}.coffee-photo{min-height:310px;max-height:420px}.coffee-copy{padding:42px 24px 48px}
+      .sweet-section{padding:65px 0}.sweet-grid{grid-template-columns:1fr 1fr;gap:15px}.sweet-card img{height:200px}.sweet-card-body{padding:16px}.sweet-card h3{font-size:1.4rem}
+      .footer-main{grid-template-columns:repeat(2,1fr);gap:35px 22px}.footer-brand{grid-column:1/-1}.footer-bottom{align-items:flex-start;flex-direction:column}
+    }
+    @media(max-width:440px){.container{width:calc(100% - 30px)}h1{font-size:clamp(3.15rem,15vw,4.1rem)}.hero-copy{padding:60px 18px 45px}.hero-image{min-height:280px}.sweet-grid{grid-template-columns:1fr}.sweet-card img{height:240px}.coffee-list{grid-template-columns:1fr}.menu-item h3{font-size:1.45rem}.footer-main{gap:30px 16px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.example.com/#organization",
+        "name": "Ember Cafe",
+        "url": "https://www.example.com/",
+        "description": "A welcoming cafe focused on thoughtful coffee, fresh seasonal food, and hospitality."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.example.com/#website",
+        "url": "https://www.example.com/",
+        "name": "Ember Cafe",
+        "publisher": {"@id": "https://www.example.com/#organization"},
+        "inLanguage": "en-NZ"
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.example.com/menu#webpage",
+        "url": "https://www.example.com/menu",
+        "name": "Menu | Ember Cafe",
+        "isPartOf": {"@id": "https://www.example.com/#website"},
+        "about": {"@id": "https://www.example.com/#organization"},
+        "inLanguage": "en-NZ"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Ember Cafe home">
+        <svg class="brand-mark" viewBox="0 0 60 72" aria-hidden="true"><path fill="currentColor" d="M31 2C40 17 54 25 53 40c-1 16-12 27-25 28C13 66 4 55 5 41 6 29 16 20 21 8c3 11 4 15 10 20 4-9 3-17 0-26Z"/><path fill="#F5EEE3" d="M31 27c-7 9-11 15-9 23 1 6 5 10 10 10 9-2 13-11 8-19-2-4-6-8-9-14Z"/><path d="M31 34c-4 7-5 13 0 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span class="brand-name"><strong>EMBER</strong><small>C A F E</small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+      <nav class="nav-links" id="primary-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a><a href="menu.html" aria-current="page">Menu</a><a href="about.html">Our Story</a><a href="catering.html">Catering</a><a href="contact.html">Contact</a><a class="btn" href="contact.html">Visit Ember <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="menu-hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <span class="eyebrow">Fresh from our kitchen</span>
+        <h1 id="page-title">Made with care.<br><em>Served with warmth.</em></h1>
+        <p class="lead">From your first flat white to a slow weekend brunch, our menu is all about familiar favourites, fresh flavours, and little moments worth savouring.</p>
+        <a class="btn" href="#brunch">Explore the menu <span aria-hidden="true">↓</span></a>
+        <span class="hero-note">Seasonal · Freshly prepared · Made to enjoy</span>
+      </div>
+      <div class="hero-image"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=88" alt="Freshly brewed coffee and a relaxed cafe table" fetchpriority="high"></div>
+    </section>
+
+    <nav class="menu-jump" aria-label="Menu sections">
+      <div class="container menu-jump-inner">
+        <a href="#brunch">Brunch & lunch</a><a href="#coffee">Coffee & drinks</a><a href="#sweet">Something sweet</a>
+      </div>
+    </nav>
+
+    <section class="menu-intro">
+      <div class="container">
+        <span class="eyebrow">A little something for everyone</span>
+        <h2>Find your <em>favourite.</em></h2>
+        <p class="lead">Good ingredients, considered combinations, and comforting classics — with a few seasonal surprises along the way.</p>
+      </div>
+    </section>
+
+    <section class="menu-section" id="brunch">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">From the kitchen</span><h2>Brunch <em>& lunch</em></h2></div>
+          <p>Made for slow mornings, lunch breaks, and catching up over one more bite.</p>
+        </div>
+        <div class="menu-layout">
+          <article class="menu-item"><div><h3>Ember Big Breakfast</h3></div><span class="price">$25</span><p>Free-range eggs, streaky bacon, roasted mushrooms, blistered tomato, hash brown, sourdough and house relish.</p><div class="dietary"><span>GF option</span></div></article>
+          <article class="menu-item"><div><h3>Green Garden Bowl</h3></div><span class="price">$21</span><p>Seasonal greens, avocado, quinoa, pickled onion, toasted seeds and lemon-herb dressing.</p><div class="dietary"><span>Vegan</span><span>GF</span></div></article>
+          <article class="menu-item"><div><h3>Smashed Avocado Toast</h3></div><span class="price">$19</span><p>Avocado, whipped feta, chilli oil, fresh herbs and toasted sourdough with lemon.</p><div class="dietary"><span>V</span><span>Vegan option</span></div></article>
+          <article class="menu-item"><div><h3>Buttermilk Pancakes</h3></div><span class="price">$20</span><p>Fluffy pancakes, seasonal fruit, vanilla mascarpone and maple syrup.</p><div class="dietary"><span>V</span></div></article>
+          <article class="menu-item"><div><h3>Wild Mushroom Toast</h3></div><span class="price">$22</span><p>Garlic mushrooms, creamy whipped ricotta, thyme and parmesan on toasted sourdough.</p><div class="dietary"><span>V</span></div></article>
+          <article class="menu-item"><div><h3>Buttermilk Chicken Burger</h3></div><span class="price">$23</span><p>Crispy chicken, slaw, pickles and house-made smoky mayo in a toasted brioche bun, served with fries.</p></article>
+          <article class="menu-item"><div><h3>Eggs Your Way</h3></div><span class="price">$15</span><p>Two free-range eggs, poached, scrambled or fried, served on toasted sourdough.</p><div class="dietary"><span>V</span></div></article>
+          <article class="menu-item"><div><h3>Roast Pumpkin Toastie</h3></div><span class="price">$18</span><p>Roast pumpkin, baby spinach, cheddar and caramelised onion on golden toasted sourdough.</p><div class="dietary"><span>V</span></div></article>
+        </div>
+        <p class="section-note">V = vegetarian · GF = gluten-free option. Please let our team know about allergies or dietary requirements. Prices and availability are sample menu details and should be confirmed before publishing.</p>
+      </div>
+    </section>
+
+    <section class="coffee-feature" id="coffee">
+      <div class="coffee-photo"><img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=85" alt="Barista preparing coffee with freshly ground beans" loading="lazy"></div>
+      <div class="coffee-copy">
+        <span class="eyebrow">Your daily ritual</span>
+        <h2>A good cup changes <em>everything.</em></h2>
+        <p>From rich, chocolatey espresso to silky milk coffee, each cup is prepared with care. Ask us about alternative milks and decaf options.</p>
+        <div class="coffee-list">
+          <div class="coffee-item"><span>Espresso / Macchiato</span><span>$4.5</span></div>
+          <div class="coffee-item"><span>Long Black</span><span>$5</span></div>
+          <div class="coffee-item"><span>Flat White</span><span>$5.5</span></div>
+          <div class="coffee-item"><span>Latte / Cappuccino</span><span>$5.5</span></div>
+          <div class="coffee-item"><span>Mocha / Hot Chocolate</span><span>$6</span></div>
+          <div class="coffee-item"><span>Chai Latte / Matcha</span><span>$6</span></div>
+          <div class="coffee-item"><span>Loose-leaf Tea</span><span>$5</span></div>
+          <div class="coffee-item"><span>Iced Latte</span><span>$6.5</span></div>
+        </div>
+        <p class="section-note">Alternative milk may incur an additional charge.</p>
+      </div>
+    </section>
+
+    <section class="sweet-section" id="sweet">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">A little indulgence</span><h2>Something <em>sweet.</em></h2></div>
+          <p>Perfect alongside your coffee, or a lovely reason to make room for dessert.</p>
+        </div>
+        <div class="sweet-grid">
+          <article class="sweet-card"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85" alt="Freshly baked pastries" loading="lazy"><div class="sweet-card-body"><div class="sweet-card-top"><h3>Daily Pastry</h3><span class="price">$6.5</span></div><p>A rotating selection of flaky croissants, danishes and seasonal bakes.</p></div></article>
+          <article class="sweet-card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=900&q=85" alt="Rich chocolate cake ready to serve" loading="lazy"><div class="sweet-card-body"><div class="sweet-card-top"><h3>Chocolate Cake</h3><span class="price">$8</span></div><p>Rich chocolate layers with smooth ganache and a little sea salt.</p></div></article>
+          <article class="sweet-card"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=900&q=85" alt="Creamy dessert with fresh berries" loading="lazy"><div class="sweet-card-body"><div class="sweet-card-top"><h3>Berry & Cream Pot</h3><span class="price">$8.5</span></div><p>Vanilla cream, seasonal berries and a crunchy oat crumble.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container closing-inner">
+        <span class="eyebrow">Pull up a chair</span>
+        <h2>Your table is <em>waiting.</em></h2>
+        <p>Found something you love? Come by, bring a friend, and make a little time for something good.</p>
+        <div class="closing-actions"><a class="btn" href="contact.html">Plan Your Visit <span aria-hidden="true">↗</span></a><a class="btn btn-outline" href="about.html">Our Story</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Ember Cafe home"><svg class="brand-mark" viewBox="0 0 60 72" aria-hidden="true"><path fill="currentColor" d="M31 2C40 17 54 25 53 40c-1 16-12 27-25 28C13 66 4 55 5 41 6 29 16 20 21 8c3 11 4 15 10 20 4-9 3-17 0-26Z"/><path fill="#20211d" d="M31 27c-7 9-11 15-9 23 1 6 5 10 10 10 9-2 13-11 8-19-2-4-6-8-9-14Z"/></svg><span class="brand-name"><strong>EMBER</strong><small>C A F E</small></span></a>
+          <p>Thoughtful coffee, fresh seasonal food, and a welcoming place to slow down.</p>
+        </div>
+        <div><div class="footer-title">Explore</div><div class="footer-links"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">Our Story</a><a href="catering.html">Catering & Events</a></div></div>
+        <div><div class="footer-title">Visit</div><div class="footer-links"><a href="contact.html">Find Us</a><a href="contact.html">Opening Hours</a><a href="contact.html">Get in Touch</a></div></div>
+        <div><div class="footer-title">Stay connected</div><div class="footer-links"><a href="#" aria-label="Instagram (replace with actual profile)">Instagram</a><a href="#" aria-label="Facebook (replace with actual page)">Facebook</a><span>Good food. Great coffee.</span></div></div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year"></span> Ember Cafe. All good things reserved.</span><span>Made with warmth.</span></div>
+    </div>
+  </footer>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('#primary-nav');
+    const menuIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg>';
+    const closeIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>';
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      toggle.innerHTML = open ? closeIcon : menuIcon;
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation');
+      toggle.innerHTML = menuIcon;
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
