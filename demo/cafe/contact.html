@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-NZ">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#F5EEE3">
   <title>Contact | Ember Cafe</title>
-  <meta name="description" content="Get in touch with Ember Cafe for general questions, catering enquiries and visit information. We'd love to hear from you.">
+  <meta name="description"
+    content="Get in touch with Ember Cafe for general questions, catering enquiries and visit information. We'd love to hear from you.">
   <meta property="og:title" content="Contact | Ember Cafe">
   <meta property="og:description" content="Questions, catering or just saying hello? Get in touch with Ember Cafe.">
   <meta property="og:type" content="website">
@@ -13,244 +15,974 @@
   <link rel="canonical" href="https://www.example.com/contact">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
   <style>
-    :root{--cream:#F5EEE3;--paper:#FFFCF7;--ink:#292923;--muted:#69685F;--terracotta:#B85D3F;--terracotta-dark:#91432D;--sage:#89917A;--line:#DED5C8;--white:#fff}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:100px}
-    body{margin:0;background:var(--cream);color:var(--ink);font-family:"DM Sans",sans-serif;line-height:1.65}
-    a{color:inherit;text-decoration:none}
-    button,input,select,textarea{font:inherit}
-    .container{width:min(1160px,calc(100% - 48px));margin-inline:auto}
-    .eyebrow{font-size:.72rem;letter-spacing:.19em;text-transform:uppercase;font-weight:700;color:var(--terracotta);margin:0 0 16px}
-    h1,h2,h3,p{margin-top:0}
-    h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:500;line-height:1.03;letter-spacing:-.025em}
-    h1{font-size:clamp(3.4rem,7vw,6.3rem);margin-bottom:22px}
-    h2{font-size:clamp(2.5rem,5vw,4rem);margin-bottom:18px}
-    h3{font-size:1.8rem;margin-bottom:10px}
-    p{color:var(--muted)}
-    .site-header{position:sticky;top:0;z-index:20;background:rgba(245,238,227,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(41,41,35,.1)}
-    .nav-wrap{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-    .brand{display:inline-flex;align-items:center;gap:11px;flex-shrink:0}
-    .brand-mark{width:39px;height:39px;color:var(--terracotta)}
-    .brand-name{font-family:"Cormorant Garamond",serif;font-size:1.85rem;line-height:1;font-weight:700;letter-spacing:-.035em}
-    .brand-name span{display:block;font-family:"DM Sans",sans-serif;font-size:.56rem;letter-spacing:.26em;text-transform:uppercase;font-weight:600;margin-top:5px}
-    .nav-links{display:flex;align-items:center;gap:30px;font-size:.83rem;font-weight:600}
-    .nav-links a{transition:color .2s}
-    .nav-links a:hover,.nav-links a[aria-current="page"]{color:var(--terracotta)}
-    .nav-cta,.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--terracotta);color:white;padding:14px 21px;border:1px solid var(--terracotta);font-size:.82rem;font-weight:700;letter-spacing:.02em;transition:background .2s,border-color .2s,transform .2s;cursor:pointer}
-    .nav-cta{padding:11px 16px}
-    .nav-cta:hover,.btn:hover{background:var(--terracotta-dark);border-color:var(--terracotta-dark);transform:translateY(-1px)}
-    .btn-outline{background:transparent;color:var(--ink);border-color:var(--line)}
-    .btn-outline:hover{color:white}
-    .menu-toggle{display:none;background:none;border:0;padding:8px;color:var(--ink);cursor:pointer}
-    .hero{padding:75px 0 70px}
-    .hero-inner{max-width:850px;margin-inline:auto;text-align:center}
-    .hero-inner p:not(.eyebrow){font-size:1.05rem;max-width:650px;margin:0 auto}
-    .contact-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:7%;align-items:start}
-    .contact-info{padding:12px 0}
-    .info-item{display:flex;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
-    .info-icon{width:44px;height:44px;flex:0 0 44px;display:grid;place-items:center;color:var(--terracotta);border:1px solid var(--line)}
-    .info-icon svg{width:21px;height:21px}
-    .info-item h3{font-family:"DM Sans",sans-serif;font-size:.88rem;letter-spacing:0;font-weight:700;margin:2px 0 5px}
-    .info-item p,.info-item a{font-size:.9rem;color:var(--muted);margin:0}
-    .info-item a:hover{color:var(--terracotta)}
-    .social-note{margin-top:27px;font-size:.88rem}
-    .contact-form-wrap{background:var(--paper);padding:clamp(24px,4vw,48px);box-shadow:0 18px 55px #2929230b}
-    .form-intro{margin-bottom:28px}
-    .form-intro p{margin-bottom:0}
-    form{display:grid;gap:19px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .field{display:grid;gap:7px}
-    label{font-size:.79rem;font-weight:700}
-    input,select,textarea{width:100%;border:1px solid var(--line);background:#fffdf9;color:var(--ink);padding:13px 14px;border-radius:0;outline:none;transition:border-color .2s,box-shadow .2s}
-    input:focus,select:focus,textarea:focus{border-color:var(--terracotta);box-shadow:0 0 0 3px #B85D3F1c}
-    textarea{min-height:145px;resize:vertical}
-    input::placeholder,textarea::placeholder{color:#99958c}
-    .form-foot{display:flex;align-items:flex-start;gap:10px;font-size:.75rem;color:var(--muted);margin:0}
-    .form-foot svg{flex:0 0 16px;margin-top:3px}
-    .form-status{display:none;background:#e9eee4;border-left:3px solid var(--sage);padding:13px 15px;color:var(--ink);font-size:.86rem;margin:0}
-    .form-status.show{display:block}
-    .form-error{color:var(--terracotta-dark);font-size:.8rem;margin:0;display:none}
-    .form-error.show{display:block}
-    .section{padding:86px 0}
-    .section-paper{background:var(--paper)}
-    .visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:8%;align-items:center}
-    .visit-image{height:440px;width:100%;object-fit:cover}
-    .visit-copy p{max-width:480px}
-    .visit-details{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:27px 0}
-    .visit-detail{border-top:1px solid var(--line);padding-top:12px}
-    .visit-detail strong{display:block;font-size:.8rem;margin-bottom:5px}
-    .visit-detail span{display:block;font-size:.84rem;color:var(--muted)}
-    .faq-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:10%}
-    .faq-list{border-top:1px solid var(--line)}
-    details{border-bottom:1px solid var(--line);padding:20px 0}
-    summary{font-weight:700;font-size:.94rem;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:15px}
-    summary::-webkit-details-marker{display:none}
-    summary::after{content:"+";font-size:1.35rem;color:var(--terracotta);font-weight:400}
-    details[open] summary::after{content:"−"}
-    details p{font-size:.9rem;margin:14px 30px 0 0}
-    .cta-band{background:var(--ink);color:var(--cream);padding:65px 0}
-    .cta-inner{display:flex;align-items:center;justify-content:space-between;gap:35px}
-    .cta-inner h2{max-width:680px;margin-bottom:0}
-    .cta-inner p{color:#c6c2b8;max-width:540px;margin:13px 0 0}
-    .cta-band .eyebrow{color:#DDA18A}
-    .cta-band .btn{flex-shrink:0}
-    .site-footer{background:#22231F;color:var(--cream);padding:58px 0 24px}
-    .footer-grid{display:grid;grid-template-columns:1.3fr .7fr .8fr;gap:60px;padding-bottom:42px}
-    .footer-brand .brand-name{font-size:2rem}
-    .footer-brand p{color:#c4c0b6;max-width:330px;margin-top:20px;font-size:.9rem}
-    .footer-title{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:#DDA18A;font-weight:700;margin-bottom:17px}
-    .footer-links{display:grid;gap:10px;font-size:.88rem;color:#e1ddd4}
-    .footer-links a:hover{color:#DDA18A}
-    .footer-bottom{border-top:1px solid #ffffff24;padding-top:20px;display:flex;justify-content:space-between;gap:20px;font-size:.76rem;color:#aaa79f}
-    .footer-bottom p{color:inherit;margin:0}
-    @media(max-width:900px){.nav-links{gap:18px}.nav-links a{font-size:.78rem}.nav-cta{display:none}.contact-layout{gap:4%}.footer-grid{gap:35px}}
-    @media(max-width:700px){.container{width:min(100% - 36px,560px)}.nav-wrap{min-height:72px}.menu-toggle{display:block}.menu-toggle svg{width:26px;height:26px}.nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:var(--cream);padding:18px 24px 25px;border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0}.nav-links.open{display:flex}.nav-links a{padding:12px 0;font-size:.9rem;border-bottom:1px solid #29292312}.nav-links a:last-child{border-bottom:0}.hero{padding:55px 0 48px}h1{font-size:clamp(3.2rem,14vw,4.7rem)}h2{font-size:clamp(2.5rem,11vw,3.5rem)}.contact-layout{grid-template-columns:1fr;gap:42px}.contact-info{padding:0}.contact-form-wrap{padding:24px 20px}.form-row{grid-template-columns:1fr;gap:19px}.section{padding:64px 0}.visit-grid{grid-template-columns:1fr;gap:28px}.visit-image{height:330px;order:2}.visit-details{gap:14px}.faq-grid{grid-template-columns:1fr;gap:16px}.cta-inner{align-items:flex-start;flex-direction:column}.cta-band{padding:55px 0}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.footer-brand{grid-column:span 2}.footer-bottom{flex-direction:column;gap:8px}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+    :root {
+      --cream: #F5EEE3;
+      --paper: #FFFCF7;
+      --ink: #292923;
+      --muted: #69685F;
+      --terracotta: #B85D3F;
+      --terracotta-dark: #91432D;
+      --sage: #89917A;
+      --line: #DED5C8;
+      --white: #fff
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.65
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit
+    }
+
+    .container {
+      width: min(1160px, calc(100% - 48px));
+      margin-inline: auto
+    }
+
+    .eyebrow {
+      font-size: .72rem;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--terracotta);
+      margin: 0 0 16px
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      line-height: 1.03;
+      letter-spacing: -.025em
+    }
+
+    h1 {
+      font-size: clamp(3.4rem, 7vw, 6.3rem);
+      margin-bottom: 22px
+    }
+
+    h2 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 18px
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 10px
+    }
+
+    p {
+      color: var(--muted)
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 238, 227, .95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(41, 41, 35, .1)
+    }
+
+    .nav-wrap {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0
+    }
+
+    .brand-mark {
+      width: 39px;
+      height: 39px;
+      color: var(--terracotta)
+    }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.85rem;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -.035em
+    }
+
+    .brand-name span {
+      display: block;
+      font-family: "DM Sans", sans-serif;
+      font-size: .56rem;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 5px
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: .83rem;
+      font-weight: 600
+    }
+
+    .nav-links a {
+      transition: color .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a[aria-current="page"] {
+      color: var(--terracotta)
+    }
+
+    .nav-cta,
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--terracotta);
+      color: white;
+      padding: 14px 21px;
+      border: 1px solid var(--terracotta);
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      transition: background .2s, border-color .2s, transform .2s;
+      cursor: pointer
+    }
+
+    .nav-cta {
+      padding: 11px 16px
+    }
+
+    .nav-cta:hover,
+    .btn:hover {
+      background: var(--terracotta-dark);
+      border-color: var(--terracotta-dark);
+      transform: translateY(-1px)
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border-color: var(--line)
+    }
+
+    .btn-outline:hover {
+      color: white
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 0;
+      padding: 8px;
+      color: var(--ink);
+      cursor: pointer
+    }
+
+    .hero {
+      padding: 75px 0 70px
+    }
+
+    .hero-inner {
+      max-width: 850px;
+      margin-inline: auto;
+      text-align: center
+    }
+
+    .hero-inner p:not(.eyebrow) {
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 7%;
+      align-items: start
+    }
+
+    .contact-info {
+      padding: 12px 0
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--line)
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      display: grid;
+      place-items: center;
+      color: var(--terracotta);
+      border: 1px solid var(--line)
+    }
+
+    .info-icon svg {
+      width: 21px;
+      height: 21px
+    }
+
+    .info-item h3 {
+      font-family: "DM Sans", sans-serif;
+      font-size: .88rem;
+      letter-spacing: 0;
+      font-weight: 700;
+      margin: 2px 0 5px
+    }
+
+    .info-item p,
+    .info-item a {
+      font-size: .9rem;
+      color: var(--muted);
+      margin: 0
+    }
+
+    .info-item a:hover {
+      color: var(--terracotta)
+    }
+
+    .social-note {
+      margin-top: 27px;
+      font-size: .88rem
+    }
+
+    .contact-form-wrap {
+      background: var(--paper);
+      padding: clamp(24px, 4vw, 48px);
+      box-shadow: 0 18px 55px #2929230b
+    }
+
+    .form-intro {
+      margin-bottom: 28px
+    }
+
+    .form-intro p {
+      margin-bottom: 0
+    }
+
+    form {
+      display: grid;
+      gap: 19px
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px
+    }
+
+    .field {
+      display: grid;
+      gap: 7px
+    }
+
+    label {
+      font-size: .79rem;
+      font-weight: 700
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: #fffdf9;
+      color: var(--ink);
+      padding: 13px 14px;
+      border-radius: 0;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--terracotta);
+      box-shadow: 0 0 0 3px #B85D3F1c
+    }
+
+    textarea {
+      min-height: 145px;
+      resize: vertical
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #99958c
+    }
+
+    .form-foot {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: .75rem;
+      color: var(--muted);
+      margin: 0
+    }
+
+    .form-foot svg {
+      flex: 0 0 16px;
+      margin-top: 3px
+    }
+
+    .form-status {
+      display: none;
+      background: #e9eee4;
+      border-left: 3px solid var(--sage);
+      padding: 13px 15px;
+      color: var(--ink);
+      font-size: .86rem;
+      margin: 0
+    }
+
+    .form-status.show {
+      display: block
+    }
+
+    .form-error {
+      color: var(--terracotta-dark);
+      font-size: .8rem;
+      margin: 0;
+      display: none
+    }
+
+    .form-error.show {
+      display: block
+    }
+
+    .section {
+      padding: 86px 0
+    }
+
+    .section-paper {
+      background: var(--paper)
+    }
+
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8%;
+      align-items: center
+    }
+
+    .visit-image {
+      height: 440px;
+      width: 100%;
+      object-fit: cover
+    }
+
+    .visit-copy p {
+      max-width: 480px
+    }
+
+    .visit-details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 27px 0
+    }
+
+    .visit-detail {
+      border-top: 1px solid var(--line);
+      padding-top: 12px
+    }
+
+    .visit-detail strong {
+      display: block;
+      font-size: .8rem;
+      margin-bottom: 5px
+    }
+
+    .visit-detail span {
+      display: block;
+      font-size: .84rem;
+      color: var(--muted)
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 10%
+    }
+
+    .faq-list {
+      border-top: 1px solid var(--line)
+    }
+
+    details {
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0
+    }
+
+    summary {
+      font-weight: 700;
+      font-size: .94rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px
+    }
+
+    summary::-webkit-details-marker {
+      display: none
+    }
+
+    summary::after {
+      content: "+";
+      font-size: 1.35rem;
+      color: var(--terracotta);
+      font-weight: 400
+    }
+
+    details[open] summary::after {
+      content: "−"
+    }
+
+    details p {
+      font-size: .9rem;
+      margin: 14px 30px 0 0
+    }
+
+    .cta-band {
+      background: var(--ink);
+      color: var(--cream);
+      padding: 65px 0
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px
+    }
+
+    .cta-inner h2 {
+      max-width: 680px;
+      margin-bottom: 0
+    }
+
+    .cta-inner p {
+      color: #c6c2b8;
+      max-width: 540px;
+      margin: 13px 0 0
+    }
+
+    .cta-band .eyebrow {
+      color: #DDA18A
+    }
+
+    .cta-band .btn {
+      flex-shrink: 0
+    }
+
+    .site-footer {
+      background: #22231F;
+      color: var(--cream);
+      padding: 58px 0 24px
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr .8fr;
+      gap: 60px;
+      padding-bottom: 42px
+    }
+
+    .footer-brand .brand-name {
+      font-size: 2rem
+    }
+
+    .footer-brand p {
+      color: #c4c0b6;
+      max-width: 330px;
+      margin-top: 20px;
+      font-size: .9rem
+    }
+
+    .footer-title {
+      font-size: .72rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #DDA18A;
+      font-weight: 700;
+      margin-bottom: 17px
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      font-size: .88rem;
+      color: #e1ddd4
+    }
+
+    .footer-links a:hover {
+      color: #DDA18A
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #ffffff24;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: .76rem;
+      color: #aaa79f
+    }
+
+    .footer-bottom p {
+      color: inherit;
+      margin: 0
+    }
+
+    @media(max-width:900px) {
+      .nav-links {
+        gap: 18px
+      }
+
+      .nav-links a {
+        font-size: .78rem
+      }
+
+      .nav-cta {
+        display: none
+      }
+
+      .contact-layout {
+        gap: 4%
+      }
+
+      .footer-grid {
+        gap: 35px
+      }
+    }
+
+    @media(max-width:700px) {
+      .container {
+        width: min(100% - 36px, 560px)
+      }
+
+      .nav-wrap {
+        min-height: 72px
+      }
+
+      .menu-toggle {
+        display: block
+      }
+
+      .menu-toggle svg {
+        width: 26px;
+        height: 26px
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--cream);
+        padding: 18px 24px 25px;
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0
+      }
+
+      .nav-links.open {
+        display: flex
+      }
+
+      .nav-links a {
+        padding: 12px 0;
+        font-size: .9rem;
+        border-bottom: 1px solid #29292312
+      }
+
+      .nav-links a:last-child {
+        border-bottom: 0
+      }
+
+      .hero {
+        padding: 55px 0 48px
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 14vw, 4.7rem)
+      }
+
+      h2 {
+        font-size: clamp(2.5rem, 11vw, 3.5rem)
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 42px
+      }
+
+      .contact-info {
+        padding: 0
+      }
+
+      .contact-form-wrap {
+        padding: 24px 20px
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 19px
+      }
+
+      .section {
+        padding: 64px 0
+      }
+
+      .visit-grid {
+        grid-template-columns: 1fr;
+        gap: 28px
+      }
+
+      .visit-image {
+        height: 330px;
+        order: 2
+      }
+
+      .visit-details {
+        gap: 14px
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 16px
+      }
+
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column
+      }
+
+      .cta-band {
+        padding: 55px 0
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px
+      }
+
+      .footer-brand {
+        grid-column: span 2
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important
+      }
+    }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"Ember Cafe","url":"https://www.example.com","description":"Cafe and kitchen concept"},{"@type":"ContactPage","name":"Contact | Ember Cafe","url":"https://www.example.com/contact"}]}
   </script>
 </head>
+
 <body>
-<header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="index.html" aria-label="Ember Cafe home">
-      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M25.7 4.5c2.4 8.1-2.4 10.3-1.3 15.4.7 3.1 3.5 4.3 5.5 2.4 2.4-2.2 1.4-5.6 1.1-7.1 7 5.2 11.4 12.1 8.7 20.1C37.6 42 29.8 46 22.2 44.2 13.9 42.3 8 36 9 27.8c.7-5.8 4.9-9.4 8.2-13.7-.4 5.4.3 8.1 2.4 9.2 1.8-5.8 1.7-11.8 6.1-18.8Z" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M24.5 29.1c-3.4 3.2-4.2 6.2-1.9 9 1.6 2 4.8 1.8 6.1-.3 1.5-2.4.1-5.2-4.2-8.7Z" fill="currentColor"/></svg>
-      <span class="brand-name">ember<span>cafe & kitchen</span></span>
-    </a>
-    <nav class="nav-links" id="primary-nav" aria-label="Main navigation">
-      <a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">Our Story</a><a href="catering.html">Catering</a><a href="contact.html" aria-current="page">Contact</a>
-    </nav>
-    <a class="nav-cta" href="#contact-form">Send us a message <span aria-hidden="true">↗</span></a>
-    <button class="menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="primary-nav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
-  </div>
-</header>
-<main>
-  <section class="hero">
-    <div class="container hero-inner">
-      <p class="eyebrow">We'd love to hear from you</p>
-      <h1>Come say hello.</h1>
-      <p>Have a question, planning a gathering, or simply want to know more about Ember? Send us a note. There's always room for a good conversation.</p>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="Ember Cafe home">
+        <svg class="brand-mark" viewBox="0 0 60 72" aria-hidden="true">
+          <path fill="currentColor"
+            d="M31 2C40 17 54 25 53 40c-1 16-12 27-25 28C13 66 4 55 5 41 6 29 16 20 21 8c3 11 4 15 10 20 4-9 3-17 0-26Z" />
+          <path fill="#F5EEE3" d="M31 27c-7 9-11 15-9 23 1 6 5 10 10 10 9-2 13-11 8-19-2-4-6-8-9-14Z" />
+          <path d="M31 34c-4 7-5 13 0 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+        <span class="brand-name"><strong>EMBER</strong><small> C A F E </small></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false"
+        aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+          <path d="M3 7h18M3 12h18M3 17h18" />
+        </svg>
+      </button>
+      <nav class="nav-links" id="primary-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">Our Story</a>
+        <a href="catering.html">Catering</a>
+        <a href="contact.html">Contact</a>
+        <a class="btn" href="contact.html">Visit Ember <span aria-hidden="true">↗</span></a>
+      </nav>
     </div>
-  </section>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="eyebrow">We'd love to hear from you</p>
+        <h1>Come say hello.</h1>
+        <p>Have a question, planning a gathering, or simply want to know more about Ember? Send us a note. There's
+          always room for a good conversation.</p>
+      </div>
+    </section>
 
-  <section class="container contact-layout" id="contact-form" style="padding-bottom:90px">
-    <aside class="contact-info">
-      <p class="eyebrow">Get in touch</p>
-      <h2>Let's start<br>a conversation.</h2>
-      <p>Choose the option that suits you, or use the form and tell us a little about what you need.</p>
-      <div class="info-item">
-        <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m4 7 8 6 8-6"/></svg></div>
-        <div><h3>Email</h3><p>Use the message form and our team can get back to you.</p></div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
-        <div><h3>Visit us</h3><p>Our cafe address and directions can be added here once confirmed.</p></div>
-      </div>
-      <div class="info-item">
-        <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <div><h3>Opening hours</h3><p>Add your confirmed days and opening times here before publishing.</p></div>
-      </div>
-      <p class="social-note">For catering, meetings or a special gathering, visit our <a href="catering.html" style="color:var(--terracotta);text-decoration:underline;text-underline-offset:3px">Catering page</a> for inspiration.</p>
-    </aside>
-
-    <div class="contact-form-wrap">
-      <div class="form-intro"><p class="eyebrow">Send a message</p><h2>What's on your mind?</h2><p>Fill in the details below and we'll be in touch.</p></div>
-      <form id="message-form">
-        <div class="form-row">
-          <div class="field"><label for="name">Your name *</label><input id="name" name="name" autocomplete="name" placeholder="e.g. Alex Morgan" required></div>
-          <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
+    <section class="container contact-layout" id="contact-form" style="padding-bottom:90px">
+      <aside class="contact-info">
+        <p class="eyebrow">Get in touch</p>
+        <h2>Let's start<br>a conversation.</h2>
+        <p>Choose the option that suits you, or use the form and tell us a little about what you need.</p>
+        <div class="info-item">
+          <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="5" width="18" height="14" rx="1" />
+              <path d="m4 7 8 6 8-6" />
+            </svg></div>
+          <div>
+            <h3>Email</h3>
+            <p>Use the message form and our team can get back to you.</p>
+          </div>
         </div>
-        <div class="form-row">
-          <div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Your best contact number"></div>
-          <div class="field"><label for="topic">What can we help with? *</label><select id="topic" name="topic" required><option value="" selected disabled>Choose a topic</option><option>General question</option><option>Catering enquiry</option><option>Group booking or event</option><option>Feedback</option><option>Something else</option></select></div>
+        <div class="info-item">
+          <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" />
+              <circle cx="12" cy="10" r="2.5" />
+            </svg></div>
+          <div>
+            <h3>Visit us</h3>
+            <p>Our cafe address and directions can be added here once confirmed.</p>
+          </div>
         </div>
-        <div class="field"><label for="date">Event date (if relevant)</label><input id="date" name="date" type="date"></div>
-        <div class="field"><label for="message">Your message *</label><textarea id="message" name="message" placeholder="Tell us a little more..." required></textarea></div>
-        <p class="form-error" id="form-error" role="alert">Please complete the required fields and check your email address.</p>
-        <p class="form-status" id="form-status" role="status">Your message has been prepared. This demo form is not connected to an inbox yet. Please connect it to your email or form service before publishing.</p>
-        <button class="btn" type="submit">Prepare your message <span aria-hidden="true">↗</span></button>
-        <p class="form-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16"><rect x="5" y="10" width="14" height="11" rx="1"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg>Your details should only be used to respond to your enquiry. Add your final privacy policy and data-handling information before launch.</p>
-      </form>
-    </div>
-  </section>
-
-  <section class="section section-paper">
-    <div class="container visit-grid">
-      <img class="visit-image" src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=85" alt="Warm, welcoming cafe interior with tables and natural light" loading="lazy">
-      <div class="visit-copy">
-        <p class="eyebrow">A seat is waiting</p>
-        <h2>Your little pause<br>in the day.</h2>
-        <p>We believe a cafe should feel like a welcome pause: a good cup, something lovely to eat, and space to catch up or simply slow down.</p>
-        <div class="visit-details">
-          <div class="visit-detail"><strong>Find us</strong><span>Add confirmed cafe address</span></div>
-          <div class="visit-detail"><strong>When we're open</strong><span>Add confirmed opening hours</span></div>
+        <div class="info-item">
+          <div class="info-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 2" />
+            </svg></div>
+          <div>
+            <h3>Opening hours</h3>
+            <p>Add your confirmed days and opening times here before publishing.</p>
+          </div>
         </div>
-        <a class="btn btn-outline" href="menu.html">Explore the menu <span aria-hidden="true">↗</span></a>
-      </div>
-    </div>
-  </section>
+        <p class="social-note">For catering, meetings or a special gathering, visit our <a href="catering.html"
+            style="color:var(--terracotta);text-decoration:underline;text-underline-offset:3px">Catering page</a> for
+          inspiration.</p>
+      </aside>
 
-  <section class="section">
-    <div class="container faq-grid">
-      <div><p class="eyebrow">Good to know</p><h2>A few quick answers.</h2><p>If your question isn't covered here, send us a message and we'll point you in the right direction.</p></div>
-      <div class="faq-list">
-        <details><summary>How do I enquire about catering?</summary><p>Choose “Catering enquiry” in the form above and include your date, approximate guest numbers, event type and any dietary requirements. You can also visit the <a href="catering.html" style="color:var(--terracotta);text-decoration:underline">Catering page</a>.</p></details>
-        <details><summary>Can I ask about dietary requirements?</summary><p>Absolutely. Include the details in your message. Any available options and allergen or cross-contact information must be confirmed directly with the cafe before ordering.</p></details>
-        <details><summary>Where can I find the menu?</summary><p>Head to our <a href="menu.html" style="color:var(--terracotta);text-decoration:underline">Menu page</a> for a sample of the food and drinks in this website concept. Final offerings and prices should be confirmed before launch.</p></details>
+      <div class="contact-form-wrap">
+        <div class="form-intro">
+          <p class="eyebrow">Send a message</p>
+          <h2>What's on your mind?</h2>
+          <p>Fill in the details below and we'll be in touch.</p>
+        </div>
+        <form id="message-form">
+          <div class="form-row">
+            <div class="field"><label for="name">Your name *</label><input id="name" name="name" autocomplete="name"
+                placeholder="e.g. Alex Morgan" required></div>
+            <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email"
+                autocomplete="email" placeholder="you@example.com" required></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel"
+                autocomplete="tel" placeholder="Your best contact number"></div>
+            <div class="field"><label for="topic">What can we help with? *</label><select id="topic" name="topic"
+                required>
+                <option value="" selected disabled>Choose a topic</option>
+                <option>General question</option>
+                <option>Catering enquiry</option>
+                <option>Group booking or event</option>
+                <option>Feedback</option>
+                <option>Something else</option>
+              </select></div>
+          </div>
+          <div class="field"><label for="date">Event date (if relevant)</label><input id="date" name="date" type="date">
+          </div>
+          <div class="field"><label for="message">Your message *</label><textarea id="message" name="message"
+              placeholder="Tell us a little more..." required></textarea></div>
+          <p class="form-error" id="form-error" role="alert">Please complete the required fields and check your email
+            address.</p>
+          <p class="form-status" id="form-status" role="status">Your message has been prepared. This demo form is not
+            connected to an inbox yet. Please connect it to your email or form service before publishing.</p>
+          <button class="btn" type="submit">Prepare your message <span aria-hidden="true">↗</span></button>
+          <p class="form-foot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16"
+              height="16">
+              <rect x="5" y="10" width="14" height="11" rx="1" />
+              <path d="M8 10V7a4 4 0 1 1 8 0v3" />
+            </svg>Your details should only be used to respond to your enquiry. Add your final privacy policy and
+            data-handling information before launch.</p>
+        </form>
       </div>
-    </div>
-  </section>
-</main>
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a class="brand" href="index.html" aria-label="Ember Cafe home"><svg class="brand-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M25.7 4.5c2.4 8.1-2.4 10.3-1.3 15.4.7 3.1 3.5 4.3 5.5 2.4 2.4-2.2 1.4-5.6 1.1-7.1 7 5.2 11.4 12.1 8.7 20.1C37.6 42 29.8 46 22.2 44.2 13.9 42.3 8 36 9 27.8c.7-5.8 4.9-9.4 8.2-13.7-.4 5.4.3 8.1 2.4 9.2 1.8-5.8 1.7-11.8 6.1-18.8Z" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M24.5 29.1c-3.4 3.2-4.2 6.2-1.9 9 1.6 2 4.8 1.8 6.1-.3 1.5-2.4.1-5.2-4.2-8.7Z" fill="currentColor"/></svg><span class="brand-name">ember<span>cafe & kitchen</span></span></a>
-        <p>Good coffee, thoughtful food and warm hospitality. A little space to slow down and gather.</p>
-      </div>
-      <div><div class="footer-title">Explore</div><div class="footer-links"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">Our Story</a><a href="catering.html">Catering</a></div></div>
-      <div><div class="footer-title">Say hello</div><div class="footer-links"><a href="contact.html">Contact the team</a><a href="contact.html#contact-form">Send a message</a><a href="catering.html">Catering enquiries</a></div></div>
-    </div>
-    <div class="footer-bottom"><p>© <span id="year"></span> Ember Cafe. All rights reserved.</p><p>Made for good food and good company.</p></div>
-  </div>
-</footer>
-<script>
-  const toggle = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('.nav-links');
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
-  });
-  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open navigation menu');
-  }));
-  document.getElementById('year').textContent = new Date().getFullYear();
+    </section>
 
-  const form = document.getElementById('message-form');
-  const error = document.getElementById('form-error');
-  const status = document.getElementById('form-status');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    error.classList.remove('show');
-    status.classList.remove('show');
-    if (!form.reportValidity()) {
-      error.classList.add('show');
-      return;
+    <section class="section section-paper">
+      <div class="container visit-grid">
+        <img class="visit-image"
+          src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1200&q=85"
+          alt="Warm, welcoming cafe interior with tables and natural light" loading="lazy">
+        <div class="visit-copy">
+          <p class="eyebrow">A seat is waiting</p>
+          <h2>Your little pause<br>in the day.</h2>
+          <p>We believe a cafe should feel like a welcome pause: a good cup, something lovely to eat, and space to catch
+            up or simply slow down.</p>
+          <div class="visit-details">
+            <div class="visit-detail"><strong>Find us</strong><span>Add confirmed cafe address</span></div>
+            <div class="visit-detail"><strong>When we're open</strong><span>Add confirmed opening hours</span></div>
+          </div>
+          <a class="btn btn-outline" href="menu.html">Explore the menu <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container faq-grid">
+        <div>
+          <p class="eyebrow">Good to know</p>
+          <h2>A few quick answers.</h2>
+          <p>If your question isn't covered here, send us a message and we'll point you in the right direction.</p>
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>How do I enquire about catering?</summary>
+            <p>Choose “Catering enquiry” in the form above and include your date, approximate guest numbers, event type
+              and any dietary requirements. You can also visit the <a href="catering.html"
+                style="color:var(--terracotta);text-decoration:underline">Catering page</a>.</p>
+          </details>
+          <details>
+            <summary>Can I ask about dietary requirements?</summary>
+            <p>Absolutely. Include the details in your message. Any available options and allergen or cross-contact
+              information must be confirmed directly with the cafe before ordering.</p>
+          </details>
+          <details>
+            <summary>Where can I find the menu?</summary>
+            <p>Head to our <a href="menu.html" style="color:var(--terracotta);text-decoration:underline">Menu page</a>
+              for a sample of the food and drinks in this website concept. Final offerings and prices should be
+              confirmed before launch.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="index.html" aria-label="Ember Cafe home"><svg class="brand-mark" viewBox="0 0 48 48"
+              fill="none" aria-hidden="true">
+              <path
+                d="M25.7 4.5c2.4 8.1-2.4 10.3-1.3 15.4.7 3.1 3.5 4.3 5.5 2.4 2.4-2.2 1.4-5.6 1.1-7.1 7 5.2 11.4 12.1 8.7 20.1C37.6 42 29.8 46 22.2 44.2 13.9 42.3 8 36 9 27.8c.7-5.8 4.9-9.4 8.2-13.7-.4 5.4.3 8.1 2.4 9.2 1.8-5.8 1.7-11.8 6.1-18.8Z"
+                stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M24.5 29.1c-3.4 3.2-4.2 6.2-1.9 9 1.6 2 4.8 1.8 6.1-.3 1.5-2.4.1-5.2-4.2-8.7Z"
+                fill="currentColor" />
+            </svg><span class="brand-name">ember<span>cafe & kitchen</span></span></a>
+          <p>Good coffee, thoughtful food and warm hospitality. A little space to slow down and gather.</p>
+        </div>
+        <div>
+          <div class="footer-title">Explore</div>
+          <div class="footer-links"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="about.html">Our
+              Story</a><a href="catering.html">Catering</a></div>
+        </div>
+        <div>
+          <div class="footer-title">Say hello</div>
+          <div class="footer-links"><a href="contact.html">Contact the team</a><a href="contact.html#contact-form">Send
+              a message</a><a href="catering.html">Catering enquiries</a></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Ember Cafe. All rights reserved.</p>
+        <p>Made for good food and good company.</p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.nav-links');
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation menu');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('message-form');
+    const error = document.getElementById('form-error');
+    const status = document.getElementById('form-status');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      error.classList.remove('show');
+      status.classList.remove('show');
+      if (!form.reportValidity()) {
+        error.classList.add('show');
+        return;
+      }
+      status.classList.add('show');
+      status.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('subject')?.toLowerCase().includes('catering')) {
+      document.getElementById('topic').value = 'Catering enquiry';
+      document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    status.classList.add('show');
-    status.scrollIntoView({behavior:'smooth',block:'nearest'});
-  });
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('subject')?.toLowerCase().includes('catering')) {
-    document.getElementById('topic').value = 'Catering enquiry';
-    document.getElementById('contact-form').scrollIntoView({behavior:'smooth',block:'start'});
-  }
-</script>
+  </script>
 </body>
+
 </html>
